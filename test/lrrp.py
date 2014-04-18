@@ -1,6 +1,6 @@
 import socketserver
 
-class MyUDPHandler(socketserver.BaseRequestHandler):
+class LRRP(socketserver.BaseRequestHandler):
     """
     This class works similar to the TCP handler class, except that
     self.request consists of a pair of data and client socket, and since
@@ -19,5 +19,5 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
 
 if __name__ == "__main__":
     HOST, PORT = "192.168.11.2", 4001
-    server = socketserver.UDPServer((HOST, PORT), MyUDPHandler)
+    server = socketserver.UDPServer((HOST, PORT), LRRP)
     server.serve_forever()
