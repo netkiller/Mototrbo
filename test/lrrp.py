@@ -10,9 +10,11 @@ class LRRP(socketserver.BaseRequestHandler):
         socket = self.request[1]
         print("{} wrote:".format(self.client_address[0]))
         print(data)
+        idata = map(ord, data)
+        print(idata)
         #.decode(encoding='UTF-8')
         #socket.sendto(data.upper(), self.client_address)
-        socket.sendto(data, self.client_address)
+        #socket.sendto(data, self.client_address)
     def finish(self):
         print( "{} disconnected".format(self.client_address) )
         #self.request.send('bye client %s\n' % str(self.client_address))
@@ -50,4 +52,8 @@ b"f &'kQ\x1aeG"
 b'f &\x9c\xf4Q\x1aq\x9d'
 b'f %\xc8\xe6Q\x1ab\x8e'
 b'f %\xc8\xe6Q\x1ab\x8e'
+
+b'f %\xd6\xbaQ\x1aP%'
+b"f %\xe1'Q\x1aRu"
+b'f %\xc6\x07Q\x1aQ\x07'
 """
